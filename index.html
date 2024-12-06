@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeeva Resort Restaurant</title>
+
+    <!-- Add Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Navigation Bar */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: #222;
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /*style for logo*/
+      #my-logo a {
+        text-decoration: none;
+        font-size: 28px;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      #nav-links {
+        list-style-type: none;
+        display: flex;
+        gap: 25px;
+      }
+
+      #nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      #nav-links li a:hover {
+        color: #ff6f61;
+      }
+
+      /* Hamburger Menu */
+      #hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        display: none;
+      }
+
+      #hamburger .menu-lines {
+        height: 2px;
+        width: 25px;
+        background-color: white;
+        margin-bottom: 8px;
+      }
+
+      /* Main Title Section */
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        margin: 50px;
+      }
+
+      main a {
+        font-size: 25px;
+        font-weight: 600;
+      }
+
+      main p {
+        font-size: 16px;
+        width: 70%;
+        margin: 20px;
+        color: black;
+        line-height: 1.6;
+      }
+
+      /*main button display flex*/
+      main #main-btns {
+        display: flex;
+        gap: 10px;
+      }
+
+      main button {
+        padding: 12px 20px;
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      main button:hover {
+        background-color: #e65c53;
+      }
+
+      /* style for Section */
+
+      /*style for aside*/
+
+      aside {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+        margin: 50px;
+      }
+
+      aside a {
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        font-weight: 600;
+      }
+
+      aside p {
+        width: 70%;
+        line-height: 1.6;
+      }
+
+      /*style for section*/
+
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50px;
+        gap: 30px;
+      }
+
+      /*style for section*/
+      section article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 300px;
+        text-align: center;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      section article img {
+        height: 300px;
+        width: 300px;
+      }
+
+      section article a {
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
+      }
+
+      section article p {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      section article button {
+        padding: 10px 20px;
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      section article button:hover {
+        background-color: #e65c53;
+      }
+
+      /*  style for Food title content */
+
+      #food-title-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+        margin: 50px;
+      }
+
+      #food-title-content a {
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        font-weight: 600;
+      }
+
+      #food-title-content p {
+        text-align: center;
+        width: 72%;
+        line-height: 1.6;
+      }
+
+      /*style for food-image-container
+         dispplayed flex..*/
+
+      #food-pictures-container img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      #food-pictures-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      #food-pictures-container article {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+
+      #food-pictures-container article button {
+        padding: 10px;
+        background-color: #ff6f61;
+        border: none;
+        color: white;
+      }
+
+      #food-pictures-container article a{
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+      }
+      
+
+      /*style for chef-title*/
+
+      #chef-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 50px;
+        gap: 20px;
+      }
+
+      #chef-title a {
+        font-size: 25px;
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+      }
+
+      #chef-title p {
+        width: 60%;
+        text-align: center;
+        line-height: 1.6;
+        margin: 10px;
+      }
+
+      /*style for chef pictures*/
+
+      #chef-pictures img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      /*style for chef picture div*/
+
+      #chef-pictures {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      /* Footer Styles */
+      footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 70px;
+        text-align: center;
+        background-color: black;
+        padding: 20px;
+        color: white;
+      }
+
+      #footer-link{
+        display: flex;
+        list-style-type: none;
+        gap: 50px;
+        margin: 20px;
+      }
+
+      #footer-link  a{
+        font-size: 20px;
+      }
+
+      #footer-link2{
+        display: flex;
+        list-style-type: none;
+        gap: 50px;
+        margin: 20px;
+      }
+
+      #nav-links.active {
+        display: block;
+      }
+
+      footer address a{
+        color: #ff6f61;
+      }
+
+      /*Media queries..*/
+
+      @media screen and (max-width: 680px) {
+        header {
+          flex-direction: column;
+          position: relative;
+          font-size: 12px;
+        }
+
+        #nav-links {
+          display: block;
+          margin: 20px;
+          display: none;
+        }
+
+        #nav-links li {
+          padding: 20px;
+          display: block;
+          
+        }
+        #nav-links li:hover {
+          background-color: red;
+        }
+
+        #hamburger {
+          display: block;
+          position: absolute;
+          right: 15px;
+          top: 18px;
+        }
+
+        /*style for logo*/
+        #my-logo {
+          align-self: flex-start;
+        }
+        #my-logo a {
+          font-size: 16px;
+          text-decoration: none;
+          color: white;
+          text-transform: uppercase;
+          font-weight: 600;
+          letter-spacing: 2px;
+        }
+
+        main a {
+          font-size: 15px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: black;
+        }
+
+        main p {
+          line-height: 1.6;
+          font-size: 10px;
+          margin: 0;
+          width: 350px;
+          color: black;
+        }
+
+        #main-btns {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        aside {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 20px;
+        }
+        aside p {
+          font-size: 10px;
+          line-height: 1.6;
+          margin: 10px;
+        }
+
+        aside a {
+          text-decoration: none;
+          color: black;
+        }
+
+        /*style for section*/
+
+        section {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        /*style for food system*/
+
+        #food-title-content {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          text-align: center;
+          margin: 20px;
+        }
+        #food-title-content a {
+          margin: 30px;
+          text-decoration: none;
+          color: black;
+        }
+
+        #food-title-content p {
+          font-size: 10px;
+          line-height: 1.6;
+          width: 300px;
+          margin-bottom: 20px;
+        }
+
+        /*style for food pictures conatainer*/
+        #food-pictures-container {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          gap: 30px;
+        }
+
+        #food-pictures-container img {
+          height: 200px;
+          width: 200px;
+        }
+        #food-pictures-container article {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        #food-pictures-container article a {
+          font-size: 10px;
+        }
+        #food-pictures-container article button {
+          padding: 10px;
+          background-color: #ff6f61;
+          border: none;
+          color: white;
+          border-radius: 5px;
+        }
+        /*style for chef title text content*/
+        #chef-title {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          text-align: center;
+          margin: 50px;
+        }
+        #chef-title p {
+          font-size: 10px;
+          line-height: 1.6;
+          width: 300px;
+        }
+
+        #chef-title a {
+          text-decoration: none;
+          color: black;
+        }
+
+        /*style for chef-pictures*/
+        #chef-pictures {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        #chef-pictures img {
+          height: 100px;
+          width: 100px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        /*style for Footer*/
+        #footer-link {
+          display: flex;
+          list-style-type: none;
+          justify-content: center;
+          gap: 30px;
+        }
+        #footer-link a {
+          color: white;
+        }
+        #footer-link2 {
+          display: flex;
+          list-style-type: none;
+          justify-content: center;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <header>
+      <div id="my-logo">
+        <a href="#">Jeeva Resort</a>
+      </div>
+      <nav id="navigation">
+        <ul id="nav-links">
+          <li>
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-concierge-bell"></i> Service</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-info-circle"></i> About</a>
+          </li>
+        </ul>
+      </nav>
+      <div id="hamburger">
+        <div class="menu-lines"></div>
+        <div class="menu-lines"></div>
+        <div class="menu-lines"></div>
+      </div>
+    </header>
+
+    <!-- Title Section -->
+    <main>
+      <a>Our Restaurant Highlights</a>
+      <p>
+        Experience the finest dining, exceptional service, and a welcoming
+        atmosphere at our restaurant. We offer a variety of gourmet dishes,
+        stunning decor, and memorable experiences for every guest.
+      </p>
+      <div id="main-btns">
+        <button><i class="fas fa-utensils"></i> Reserve a Table</button>
+        <button><i class="fas fa-book"></i> Explore Our Menu</button>
+        <button><i class="fas fa-comment-dots"></i> Share Your Feedback</button>
+      </div>
+    </main>
+
+    <!-- Featured Areas Section -->
+
+    <aside>
+      <a href="#">Our Featured Areas</a>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+        doloribus autem modi neque aut sint aperiam repellat, ex dolore
+        deserunt, eos, ratione tempore debitis explicabo sed facere hic sunt
+        qui?
+      </p>
+    </aside>
+    <!--Section part..-------------->
+    <section>
+      <!--article --1-->
+      <article>
+        <p>Area 1</p>
+        <img src="pictures/image (9).jpg" alt="place 1" />
+        <a href="#">Luxuary Dinning</a>
+        <button class="article-btn">View Details</button>
+      </article>
+      <!--article 2-->
+      <article>
+        <p>Area 2</p>
+        <img src="pictures/image (11).jpg" alt="place 2" />
+        <a href="#">Outdoor Party Area</a>
+        <button class="article-btn">View Details</button>
+      </article>
+      <!--article 3-->
+      <article>
+        <p>Area 3</p>
+        <img src="pictures/image (7).jpg" alt="place 3" />
+        <a href="#">Cafetaria</a>
+        <button class="article-btn">View Details</button>
+      </article>
+    </section>
+
+    <!--food section..------------------------------------------------>
+    <div id="food-title-content">
+      <a href="#">Our Food System</a>
+      <p>
+        Indulge in our diverse food offerings From Traditional dishes to
+        conteporary creations,we provide a culinary experiences that caters to
+        all tastes.Our chefs use only the Freshesist integridients to create
+        exceptionsl dishes that satsify every palate.
+      </p>
+    </div>
+    <!---food pictures------------------------------------------------->
+    <div id="food-pictures-container">
+      <!--artcile-1-->
+      <article>
+        <img src="pictures/image 11.jpg" alt="" />
+        <a href="#">Fried chiken</a>
+        <button>Buy Now</button>
+      </article>
+      <!--article 2-->
+      <article>
+        <img src="pictures/image 13.jpg" alt="" />
+        <a href="#">Mega Burger</a>
+        <button>Buy Now</button>
+      </article>
+      <!--article 3-->
+      <article>
+        <img src="pictures/image 15.jpg" alt="" />
+        <a href="#">Cheesy Pizza</a>
+        <button>Buy Now</button>
+      </article>
+      <!--article 4-->
+      <article>
+        <img src="pictures/image 12.jpg" alt="" />
+        <a href="#">Raw Cutlet</a>
+        <button>Buy Now</button>
+      </article>
+    </div>
+
+    <!--chef title-section----------------------------------------------->
+    <div id="chef-title">
+      <a href="#">Meet Our Chefs</a>
+      <p>
+        Our Chefs bring years of experience and passion is every dishes.Each
+        Meal is crafted with attention to detail ensuring your experience the
+        finnest flavours and textures in every bite
+      </p>
+    </div>
+
+    <!--chef pictuures  section------------------------------------------>
+    <div id="chef-pictures">
+      <img src="pictures/image (2).jpg" alt="chef-1" />
+      <img src="pictures/image (8).jpg" alt="chef-2" />
+      <img src="pictures/image (1).jpg" alt="chef-3" />
+    </div>
+
+    <!--now set footer -->
+    <footer>
+      <ul id="footer-link">
+        <li>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+      </ul>
+
+      <nav class="navigation-2">
+        <ul id="footer-link2">
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Terms of services</a></li>
+          <li><a href="#">Support and Enquiries</a></li>
+        </ul>
+      </nav>
+      <!--Address and contact informtaion-->
+      <address>
+        Jeeva Restaurant <br />
+        Rakkiyapalayam Tiruppur, Phone:7550311563 Email:<a href="#"
+          >jeeva1293@gmail.com</a
+        >
+      </address>
+      <!--copy rights...-->
+      <p>&copy 2024 Jeeva Restaurant all rights reserved.</p>
+    </footer>
+  </body>
+  <!--Javascript-->
+  <script>
+    var hamburgerMenu = document.getElementById("hamburger");
+    var navLink = document.getElementById("nav-links");
+
+    //addEventListener for hamburgerMenu..
+    hamburgerMenu.addEventListener("click", () => {
+      navLink.classList.toggle("active");
+    });
+    hamburgerMenu.classList.toggle("color");
+  </script>
+</html>
