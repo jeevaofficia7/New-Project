@@ -364,6 +364,9 @@
        animation: Emoji 1s linear;
        box-shadow: 0 0 20px red;
       }
+      .dark section article{
+        background-color: black;
+      }
   
 
      /*Thumbs up animation*/
@@ -420,6 +423,10 @@
 .fa-moon{
   animation:  bounceEffect 1s linear infinite;
   font-size: 18px;
+}
+.fa-sun{
+  font-size: 18px;
+  animation: bounceEffect 1s linear infinite;
 }
 
 @keyframes Emoji{
@@ -840,6 +847,12 @@
   myLogo.addEventListener('click',()=>{
     myLogo.innerHTML=" <i class='fas fa-moon'></i>"
     document.body.classList.toggle('dark')
+    if(document.body.classList.contains('dark')){
+      myLogo.innerHTML="<i class='fas fa-moon'></i>"
+    }
+    else{
+      myLogo.innerHTML="<i class='fas fa-sun'></i>"
+    }
   })
   
  //Para desigin...
@@ -849,7 +862,8 @@
      para.classList.toggle('paraAnimation')
    })
  })
-
+ 
+ //darkMode..
   
   </script>
 </html>
