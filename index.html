@@ -335,6 +335,57 @@
       footer address a{
         color: #ff6f61;
       }
+      
+      .fa-smile{
+        animation: Emoji 0.5s ease-in-out ;
+      }
+      .zoom{
+       animation: bounceEffect 1s linear 1;
+      
+      }
+      
+
+      @keyframes bounceEffect {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  30% {
+    transform: scale(1.1) translateY(-10px);
+  }
+  50% {
+    transform: scale(0.9) translateY(5px);
+  }
+  70% {
+    transform: scale(1.05) translateY(-3px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+
+@keyframes Emoji{
+  0%{
+   transform: rotate(0deg)
+  }
+  
+  30%{
+    transform: rotate(15deg);
+    
+  }
+  
+  60%{
+    transform: rotate(-15deg);
+  }
+  
+  
+  
+  100%{
+    transform: rotate(0deg);
+  }
+  
+}
 
       /*Media queries..*/
 
@@ -531,6 +582,13 @@
           justify-content: center;
           gap: 20px;
         }
+        .btn-body{
+          background-color: green;
+        }
+        .emoji{
+          margin-left: 10px;
+          transition: 3s linear
+        }
       }
     </style>
   </head>
@@ -713,5 +771,26 @@
       navLink.classList.toggle("active");
     });
     hamburgerMenu.classList.toggle("color");
+    
+    //Selecting buy button
+    var buyBtn = document.querySelectorAll('#food-pictures-container button');
+    buyBtn.forEach((button)=>{
+      button.addEventListener('click', ()=>{
+       button.innerHTML ="Thank You<i class='fa solid fa-smile'></i>"
+      button.style.backgroundColor="orange"
+       var emojiIcon = button.querySelector('.fa-smile')
+       
+      emojiIcon.classList.toggle('emoji')
+      })
+      
+    })
+    
+    //Select all img..
+  var imagePics = document.querySelectorAll('#food-pictures-container img');
+  imagePics.forEach((img)=>{
+    img.addEventListener('click',()=>{
+      img.classList.toggle('zoom')
+    })
+  })
   </script>
 </html>
