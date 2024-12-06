@@ -339,31 +339,64 @@
       .fa-smile{
         animation: Emoji 0.5s ease-in-out ;
       }
-      .zoom{
-       animation: bounceEffect 1s linear 1;
       
+      /*image animation*/
+      .zoom{
+       animation: bounceEffect 1s ease-in-out;
+      }
+      .buttonDesign{
+       animation: Emoji 1s linear;
       }
       
-
-      @keyframes bounceEffect {
+ @keyframes bounceEffect {
   0% {
-    transform: scale(1) translateY(0);
+    transform: scale(1) rotate(0deg);
   }
-  30% {
-    transform: scale(1.1) translateY(-10px);
-  }
+  
   50% {
-    transform: scale(0.9) translateY(5px);
-  }
-  70% {
-    transform: scale(1.05) translateY(-3px);
+    transform: scale(1.2)  rotateY(30deg);
+    opacity: 0.5;
   }
   100% {
-    transform: scale(1) translateY(0);
+    transform: scale(1)  rotate(0deg);
   }
 }
 
+/*Thumbs up animation*/
+.fa-thumbs-up{
+  animation: Emoji 1s ease-in-out;
+}
 
+/*Paragraph Animation*/
+.paraAnimation{
+  animation: fadeSlide 1s linear;
+}
+
+/* Keyframe animation for paragraph */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(30px);
+  }
+  
+  70%{
+    opacity: 0.7;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*style for paragrapg*/
+.paragraph-animate {
+  animation: textBounce 0.5s ease-in-out;
+}
 
 @keyframes Emoji{
   0%{
@@ -372,23 +405,16 @@
   
   30%{
     transform: rotate(15deg);
-    
   }
-  
   60%{
     transform: rotate(-15deg);
   }
-  
-  
-  
   100%{
     transform: rotate(0deg);
   }
   
 }
-
       /*Media queries..*/
-
       @media screen and (max-width: 680px) {
         header {
           flex-direction: column;
@@ -465,7 +491,6 @@
           font-size: 10px;
           line-height: 1.6;
           width:350px
-          
         }
 
         aside a {
@@ -474,7 +499,6 @@
         }
 
         /*style for section*/
-
         section {
           display: flex;
           flex-direction: column;
@@ -482,7 +506,6 @@
         }
 
         /*style for food system*/
-
         #food-title-content {
           display: flex;
           flex-direction: column;
@@ -582,12 +605,8 @@
           justify-content: center;
           gap: 20px;
         }
-        .btn-body{
-          background-color: green;
-        }
         .emoji{
-          margin-left: 10px;
-          transition: 3s linear
+          margin-left: 5px;
         }
       }
     </style>
@@ -597,7 +616,7 @@
     <!-- Navigation Bar -->
     <header>
       <div id="my-logo">
-        <a href="#">Jeeva Resort</a>
+        <a href="#" id="logo">Jeeva Resort</a>
       </div>
       <nav id="navigation">
         <ul id="nav-links">
@@ -776,13 +795,14 @@
     var buyBtn = document.querySelectorAll('#food-pictures-container button');
     buyBtn.forEach((button)=>{
       button.addEventListener('click', ()=>{
-       button.innerHTML ="Thank You<i class='fa solid fa-smile'></i>"
-      button.style.backgroundColor="red"
-       var emojiIcon = button.querySelector('.fa-smile')
+       button.innerHTML ="Thank You<i class='fa solid fa-thumbs-up'></i>"
+     button.style.backgroundColor="red"
+     button.classList.toggle('buttonDesign')
+       var emojiIcon = button.querySelector('.fa-thumbs-up')
+       
        
       emojiIcon.classList.toggle('emoji')
       })
-      
     })
     
     //Select all img..
@@ -792,5 +812,19 @@
       img.classList.toggle('zoom')
     })
   })
+  
+  //My Logo Design...
+  var myLogo = document.getElementById('my-logo');
+  myLogo.addEventListener('click',()=>{
+    myLogo.innerHTML=" <i class='fas fa-hotel'></i>"
+  })
+  
+ //Para desigin...
+ var paraText = document.querySelectorAll('p');
+ paraText.forEach((para)=>{
+   para.addEventListener('click' ,()=>{
+     para.classList.add('paraAnimation')
+   })
+ })
   </script>
 </html>
