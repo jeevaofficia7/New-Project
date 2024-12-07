@@ -379,6 +379,19 @@
       animation: fadeSlide 1s linear;
       }
 
+       
+       
+       .para-customize,.para-customize2, .para-customize3{
+         font-size: 12px;
+         text-align: center;
+         margin: 20px;
+         transition: all 2s ease-in;
+         animation: bounceEffect 1s linear;
+       }
+       
+    
+       
+
     
  @keyframes bounceEffect {
   0% {
@@ -684,7 +697,7 @@
         stunning decor, and memorable experiences for every guest.
       </p>
       <div id="main-btns">
-        <button><i class="fas fa-utensils"></i> Reserve a Table</button>
+        <button><i class="fas fa-utensils"></i> Reserve a Table</i>
         <button><i class="fas fa-book"></i> Explore Our Menu</button>
         <button><i class="fas fa-comment-dots"></i> Share Your Feedback</button>
       </div>
@@ -705,21 +718,24 @@
         <p>Area 1</p>
         <img src="pictures/image (9).jpg" alt="place 1" />
         <a href="#">Luxuary Dinning</a>
-        <button class="article-btn">View Details</button>
+        <button id="view-details-btn" class="article-btn">View Details</button>
+        <div id="para-container"></div>
       </article>
       <!--article 2-->
       <article>
         <p>Area 2</p>
         <img src="pictures/image (11).jpg" alt="place 2" />
         <a href="#">Outdoor Party Area</a>
-        <button class="article-btn">View Details</button>
+        <button id="view-details-btn2" class="article-btn">View Details</button>
+        <div id="para-container2"></div>
       </article>
       <!--article 3-->
       <article>
         <p>Area 3</p>
         <img src="pictures/image (7).jpg" alt="place 3" />
         <a href="#">Cafetaria</a>
-        <button class="article-btn">View Details</button>
+        <button id="view-details-btn3" class="article-btn">View Details</button>
+        <div id="para-container3"></div>
       </article>
     </section>
 
@@ -832,6 +848,7 @@
        var emojiIcon = button.querySelector('.fa-thumbs-up')
         emojiIcon.classList.toggle('emoji')
       })
+    
     })
     
     //Select all img..
@@ -855,15 +872,51 @@
     }
   })
   
- //Para desigin...
- var paraText = document.querySelectorAll('p');
- paraText.forEach((para)=>{
-   para.addEventListener('click' ,()=>{
-     para.classList.toggle('paraAnimation')
-   })
- })
- 
- //darkMode..
+  //paraAdd.For 1st Dining article button..
+  var viewDetailsBtn = document.getElementById('view-details-btn');
+  var paraContainer = document.getElementById('para-container');
+  
+  viewDetailsBtn.addEventListener('click', ()=>{
+    var newPara = document.createElement('p')
+    newPara.textContent = "Fine dining elevates the experience with exquisite dishes, impeccable service, and a setting that exudes elegance.";
+    paraContainer.appendChild(newPara);
+  //append the newPara paragraph in paraContainer..
+    newPara.classList.add('para-customize')
+  })
+  
+  //viewDetailsBtn2 Select getElementById.
+  
+  var viewDetailsBtn2 = document.getElementById('view-details-btn2');
+  var paraContainer2 = document.getElementById('para-container2');
+  //addEventListener for view-details-btn2..
+  
+  viewDetailsBtn2.addEventListener('click', ()=>{
+    var newPara2 = document.createElement('p')
+    newPara2.textContent= "An outdoor party is a magical experience where the gentle breeze, twinkling stars, and the laughter friends come together to create unforgettable memories.";
+    //append the newPara2 paragraph text in paraContainer2..
+    paraContainer2.appendChild(newPara2);
+    
+    //add classList for newPara2..
+    newPara2.classList.toggle('para-customize2')
+  })
+  
+  //viewDetailsBtn3 select elementById..
+  
+  var viewDetailsBtn3 = document.getElementById('view-details-btn3');
+  var paraContainer3 = document.getElementById('para-container3');
+  
+  //addEventListener for viewDetailsbtn3..
+  
+  viewDetailsBtn3.addEventListener('click', ()=>{
+    var newPara3 = document.createElement('p');
+    newPara3.textContent="The cafeteria is a vibrant space where people come together to enjoy quick, delicious meals, fueling their day with comfort food and friendly conversations.";
+         //append the newPara2 paragraph text in paraContainer3..
+         
+   paraContainer3.appendChild(newPara3);
+   //add classList For newPara3..
+   
+  newPara3.classList.toggle('para-customize3')
+  })
   
   </script>
 </html>
