@@ -338,7 +338,7 @@
       
       /*image animation*/
       .zoom{
-       animation: bounceEffect 1s ease-in-out;
+       transform: scale(1.5);
       }
       
       /*dark Mode*/
@@ -389,7 +389,53 @@
          animation: bounceEffect 1s linear;
        }
        
-    
+       /*Image Animation*/
+       .imageAnimation{
+         animation: bounceEffect 1s linear;
+         transition: all 1s ease-in-out;
+       }
+       .anchorAnimation{
+         animation: bounceEffect 1s linear;
+       }
+       
+       /*New Link Button*/
+       .newlink-btn{
+         background-color:  #ff6f61 ;
+         padding: 20px;
+         font-size: 10px;
+         text-align: center;
+         color: white;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         animation: Emoji 1s linear;
+       }
+       
+       /*NewLink button2*/
+       .newlink2-btn{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-color:  #ff6f61;
+         font-size: 10px;
+         padding: 20px;
+         animation: Emoji 1s linear;
+         color: white;
+       }
+       
+       /*NewLink button3*/
+     .newlink3-btn{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color:  #ff6f61;
+       padding: 20px;
+       animation: Emoji 1s linear;
+       font-size: 10px;
+       color: white;
+     }
+     
+     
        
 
     
@@ -462,7 +508,7 @@
   @media screen and (max-width: 680px) {
         header {
           flex-direction: column;
-          position: relative;
+          position: sticky;
           font-size: 12px;
         }
 
@@ -848,16 +894,8 @@
        var emojiIcon = button.querySelector('.fa-thumbs-up')
         emojiIcon.classList.toggle('emoji')
       })
-    
     })
     
-    //Select all img..
-  var imagePics = document.querySelectorAll('#food-pictures-container img');
-  imagePics.forEach((img)=>{
-    img.addEventListener('click',()=>{
-      img.classList.toggle.add('zoom')
-    })
-  })
   
   //My Logo Design...
   var myLogo = document.getElementById('my-logo');
@@ -882,6 +920,13 @@
     paraContainer.appendChild(newPara);
   //append the newPara paragraph in paraContainer..
     newPara.classList.add('para-customize')
+    
+    //create NewLink.button1.
+    var newLink = document.createElement('a');
+    newLink.href = "https://www.makemytrip.com";
+    newLink.textContent="CLICK HERE";
+    newLink.classList.add('newlink-btn'),
+    paraContainer.appendChild(newLink)
   })
   
   //viewDetailsBtn2 Select getElementById.
@@ -896,8 +941,16 @@
     //append the newPara2 paragraph text in paraContainer2..
     paraContainer2.appendChild(newPara2);
     
-    //add classList for newPara2..
+  //add classList for newPara2..
     newPara2.classList.toggle('para-customize2')
+    
+    //Create newLink2 button...
+    var newLink2 = document.createElement('a')
+    newLink2.href="https://www.whatsapp.com";
+    newLink2.textContent="CLICK HERE"
+    paraContainer2.appendChild(newLink2)
+    newLink2.classList.add('newlink2-btn')
+    
   })
   
   //viewDetailsBtn3 select elementById..
@@ -916,7 +969,27 @@
    //add classList For newPara3..
    
   newPara3.classList.toggle('para-customize3')
+  // Create NewLink Button 3...//
+  var newLink3 = document.createElement('a');
+  newLink3.href="https://www.instagram.com";
+  newLink3.textContent="CLICK HERE";
+  newLink3.classList.add('newlink3-btn')
+  paraContainer3.appendChild(newLink3)
   })
   
+  //image animation...
+  var imagePic = document.querySelectorAll('img');
+  imagePic.forEach((para)=>{
+    para.addEventListener('click',()=>{
+      para.classList.toggle('imageAnimation')
+    })
+  })
+  //Anchor Heading Animation..
+  var anchorHeading = document.querySelectorAll("a");
+  anchorHeading.forEach((anchor)=>{
+    anchor.addEventListener('click',()=>{
+      anchor.classList.toggle('anchorAnimation')
+    })
+  })
   </script>
 </html>
