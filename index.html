@@ -434,7 +434,9 @@
        font-size: 10px;
        color: white;
      }
-     
+     .fa-xmark{
+       font-size: 25px;
+     }
      
        
 
@@ -508,7 +510,7 @@
   @media screen and (max-width: 680px) {
         header {
           flex-direction: column;
-          position: sticky;
+          position: relative;
           font-size: 12px;
         }
 
@@ -536,7 +538,10 @@
 
         /*style for logo*/
         #my-logo {
-          align-self: flex-start;
+          align-self: center;
+          
+        
+         
         }
         #my-logo a {
           font-size: 16px;
@@ -698,6 +703,25 @@
         .emoji{
           margin-left: 5px;
         }
+      .fa-sun{
+       font-size: 22px;
+       
+      }
+      #sun-div{
+        align-self: flex-start;
+        justify-content:start;
+        align-items: center;
+        position: absolute;
+        left: 20px;
+        
+      }
+      .dark{
+        background-color: black;
+        color: white;
+      }
+      .dark a{
+        color: white;
+      }
       }
     </style>
   </head>
@@ -705,6 +729,10 @@
   <body>
     <!-- Navigation Bar -->
     <header>
+      <!--moon icon-->
+      <div id="sun-div">
+      <i class="fas fa-sun" id="sun-icon"></i>
+      </div>
       <div id="my-logo">
         <a href="#" id="logo">Jeeva Resort</a>
       </div>
@@ -877,10 +905,11 @@
   <script>
     var hamburgerMenu = document.getElementById("hamburger");
     var navLink = document.getElementById("nav-links");
-
     //addEventListener for hamburgerMenu..
     hamburgerMenu.addEventListener("click", () => {
       navLink.classList.toggle("active");
+      hamburgerMenu.innerHTML="<i class='fas fa-xmark'></i>"
+      
     });
     hamburgerMenu.classList.toggle("color");
     
@@ -897,18 +926,7 @@
     })
     
   
-  //My Logo Design...
-  var myLogo = document.getElementById('my-logo');
-  myLogo.addEventListener('click',()=>{
-    myLogo.innerHTML=" <i class='fas fa-moon'></i>"
-    document.body.classList.toggle('dark')
-    if(document.body.classList.contains('dark')){
-      myLogo.innerHTML="<i class='fas fa-moon'></i>"
-    }
-    else{
-      myLogo.innerHTML="<i class='fas fa-sun'></i>"
-    }
-  })
+
   
   //paraAdd.For 1st Dining article button..
   var viewDetailsBtn = document.getElementById('view-details-btn');
@@ -990,6 +1008,23 @@
     anchor.addEventListener('click',()=>{
       anchor.classList.toggle('anchorAnimation')
     })
+  })
+  
+  var darkMode = document.getElementById('sun-div');
+  darkMode.addEventListener('click', ()=>{
+    document.body.classList.toggle('dark');
+    if(document.body.classList.contains('dark')){
+      darkMode.innerHTML ="<i class='fas fa-moon'></i>"
+    }
+    else{
+      darkMode.innerHTML="<i class='fas fa-sun'></i>"
+ }
+  })
+  
+  //myLogoo...
+  var myLogo = document.getElementById('my-logo');
+  myLogo.addEventListener('click', ()=>{
+    myLogo.innerHTML ="<h2><i class='fas fa-hotel'></i></h2>"
   })
   </script>
 </html>
